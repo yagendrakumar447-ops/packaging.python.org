@@ -1,4 +1,36 @@
-.. _installing-packages:
+from datetime import datetime
+import pyttsx3
+
+# Text-to-Speech engine start
+engine = pyttsx3.init()
+engine.setProperty("rate", 150)
+engine.setProperty("volume", 1.0)
+
+
+def speak(message):
+    print("Jarvis:", message)
+    engine.say(message)
+    engine.runAndWait()
+
+
+speak("Namaste Sir!")
+
+while True:
+    user = input("Aap: ").strip().lower()
+
+    if user == "hello":
+        speak("Namaste Sir!")
+
+    elif user == "time":
+        current_time = datetime.now().strftime("%I:%M:%S %p")
+        speak("Current time hai " + current_time)
+
+    elif user in ("exit", "quit", "bye"):
+        speak("Alvida Sir!")
+        break
+
+    else:
+        speak("Maaf kijiye Sir, main samajh nahi paaya.").. _installing-packages:
 
 ===================
 Installing Packages
